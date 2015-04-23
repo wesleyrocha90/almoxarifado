@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.rocha.almoxarifado.controller.PrincipalController">
+  <children>
+    <BorderPane layoutX="34.0" layoutY="23.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <top>
+        <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+          <items>
+            <VBox alignment="TOP_CENTER" maxHeight="-Infinity" prefHeight="100.0" spacing="10.0">
+              <children>
+                <HBox>
+                  <children>
+                    <Button fx:id="botaoEntradaSaida" contentDisplay="TOP" mnemonicParsing="false" onAction="#onEntradaSaidaAction" text="Entrada / Saída">
+                      <graphic>
+                        <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+                          <image>
+                            <Image url="@../icons/inOut_512.png" />
+                          </image>
+                        </ImageView>
+                      </graphic>
+                    </Button>
+                  </children>
+                </HBox>
+                <Label text="Principal" />
+              </children>
+            </VBox>
+            <Separator orientation="VERTICAL" prefHeight="110.0" />
+            <VBox alignment="TOP_CENTER" maxHeight="-Infinity" prefHeight="100.0" spacing="10.0">
+              <children>
+                <HBox spacing="10.0">
+                  <children>
+                    <Button fx:id="botaoProduto" contentDisplay="TOP" mnemonicParsing="false" onAction="#onProdutoAction" text="Produto">
+                      <graphic>
+                        <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+                          <image>
+                            <Image url="@../icons/product_512.png" />
+                          </image>
+                        </ImageView>
+                      </graphic>
+                    </Button>
+                    <Button fx:id="botaoFuncionario" contentDisplay="TOP" mnemonicParsing="false" onAction="#onFuncionarioAction" text="Funcionário">
+                      <graphic>
+                        <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+                          <image>
+                            <Image url="@../icons/employer_512.png" />
+                          </image>
+                        </ImageView>
+                      </graphic>
+                    </Button>
+                    <Button fx:id="botaoUsuario" contentDisplay="TOP" mnemonicParsing="false" onAction="#onUsuarioAction" text="Usuário">
+                      <graphic>
+                        <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+                          <image>
+                            <Image url="@../icons/user_512.png" />
+                          </image>
+                        </ImageView>
+                      </graphic>
+                    </Button>
+                  </children>
+                </HBox>
+                <Label text="Cadastros" />
+              </children>
+            </VBox>
+          </items>
+        </ToolBar>
+      </top>
+      <center>
+        <TabPane fx:id="tabPane" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER" />
+      </center>
+    </BorderPane>
+  </children>
+</AnchorPane>
