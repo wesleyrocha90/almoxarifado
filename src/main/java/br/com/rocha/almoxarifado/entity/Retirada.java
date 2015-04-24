@@ -2,7 +2,7 @@ package br.com.rocha.almoxarifado.entity;
 
 import br.com.rocha.almoxarifado.converter.LocalDatePersistenceConverter;
 import java.io.Serializable;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -23,7 +23,7 @@ public class Retirada extends EntidadeBase implements Serializable{
 
   @Column(name = "DATA_RETIRADA")
   @Convert(converter = LocalDatePersistenceConverter.class)
-  @Getter @Setter private LocalDateTime dataRetirada;
+  @Getter @Setter private LocalDate dataRetirada;
 
   @ManyToOne
   @JoinColumn(referencedColumnName = "ID")

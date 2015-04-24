@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <BorderPane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+              <items>
+                  <TextField prefWidth="250.0" />
+                  <ChoiceBox prefWidth="150.0" />
+              </items>
+            </ToolBar>
+         </top>
+         <center>
+            <ScrollPane fitToHeight="true" fitToWidth="true" prefViewportHeight="360.0" prefViewportWidth="600.0">
+               <content>
+                  <TreeTableView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                    <columns>
+                      <TreeTableColumn fx:id="colunaData" prefWidth="75.0" text="Data" />
+                      <TreeTableColumn fx:id="colunaFuncionario" prefWidth="75.0" text="Funcionário" />
+                        <TreeTableColumn fx:id="colunaItens" prefWidth="75.0" text="Itens">
+                           <columns>
+                              <TreeTableColumn fx:id="colunaProduto" prefWidth="75.0" text="Produto" />
+                              <TreeTableColumn fx:id="colunaQuantidade" prefWidth="75.0" text="Quantidade" />
+                           </columns>
+                        </TreeTableColumn>
+                    </columns>
+                     <columnResizePolicy>
+                        <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TreeTableView>
+               </content>
+            </ScrollPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

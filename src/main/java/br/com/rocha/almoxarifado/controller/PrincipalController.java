@@ -22,7 +22,24 @@ public class PrincipalController implements Initializable {
   
   @FXML
   public void onEntradaSaidaAction(ActionEvent event){
-    System.out.println("Entrada / Saída");
+    Tab tab = new Tab("Entrada / Saída");
+    boolean temTabua = false;
+    for (Tab tabua : tabPane.getTabs()) {
+      if (tabua.getText().equals(tab.getText())) {
+        tabPane.getSelectionModel().select(tabua);
+        temTabua = true;
+      }
+    }
+    if (!temTabua) {
+      try {
+        Flow flow = new Flow(RetiradaListaController.class);
+        tab.setContent(flow.start());
+        tabPane.getTabs().add(tab);
+        tabPane.getSelectionModel().select(tab);
+      } catch (SecurityException | FlowException ex) {
+        ex.printStackTrace();
+      }
+    }
   }
   
   @FXML
