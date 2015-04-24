@@ -42,7 +42,8 @@
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                      </columnResizePolicy>
                      <columns>
-                        <TableColumn fx:id="colunaUsuario" prefWidth="75.0" text="Usuário" />
+                        <TableColumn fx:id="colunaCodigo" prefWidth="75.0" text="Código" />
+                        <TableColumn fx:id="colunaNome" prefWidth="75.0" text="Nome" />
                      </columns>
                   </TableView>
                </content>

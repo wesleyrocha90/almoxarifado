@@ -2,6 +2,7 @@ package br.com.rocha.almoxarifado.controller.flow;
 
 import br.com.rocha.almoxarifado.entity.EntidadeBase;
 import io.datafx.controller.flow.action.ActionTrigger;
+import java.lang.reflect.ParameterizedType;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javax.annotation.PostConstruct;
@@ -11,11 +12,11 @@ import lombok.Getter;
 public abstract class AbstractCadastroController<E extends EntidadeBase> {
 
   @FXML
-//  @ActionTrigger("salvar")
+  @ActionTrigger("salvar")
   private Button salvar;
   
   @FXML
-//  @ActionTrigger("salvarEFechar")
+  @ActionTrigger("salvarEFechar")
   private Button salvarEFechar;
   
   @FXML
@@ -25,11 +26,11 @@ public abstract class AbstractCadastroController<E extends EntidadeBase> {
   @Inject
   @Getter private DataModelFlow<E> modelo;
   
-  public abstract E telaParaObjeto();
+  public abstract void telaParaObjeto(E objeto);
   public abstract void objetoParaTela(E objeto);
   
   public void onSaveAction(){
-    modelo.setDado(telaParaObjeto());
+    telaParaObjeto(modelo.getDado());
   }
   
   @PostConstruct
@@ -38,14 +39,13 @@ public abstract class AbstractCadastroController<E extends EntidadeBase> {
       if(modelo.getIndiceDado() >= 0){
         modelo.setDado(modelo.getDados().get(modelo.getIndiceDado()));
       }else{
-//        try {
-//          ParameterizedType parameterizedType = (ParameterizedType) getClass().getGenericSuperclass();
-//          String parameterClassName = parameterizedType.getActualTypeArguments()[0].getTypeName();
-////          modelo.setDado((E) Class.forName(parameterClassName).newInstance());
-//          System.out.println("Instanciando : " + (E)Class.forName(parameterClassName).newInstance());
-//        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
-//          System.out.println(ex);
-//        }
+        try {
+          ParameterizedType parameterizedType = (ParameterizedType) getClass().getGenericSuperclass();
+          String parameterClassName = parameterizedType.getActualTypeArguments()[0].getTypeName();
+          modelo.setDado((E) Class.forName(parameterClassName).newInstance());
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
+          System.out.println(ex);
+        }
       }
       objetoParaTela(modelo.getDado());
     }

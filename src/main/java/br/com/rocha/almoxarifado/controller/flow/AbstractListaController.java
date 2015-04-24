@@ -22,7 +22,7 @@ public abstract class AbstractListaController<E extends EntidadeBase> {
   private Button criar;
   
   @FXML
-//  @ActionTrigger("remover")
+  @ActionTrigger("remover")
   private Button remover;
   
   @Inject
@@ -39,7 +39,6 @@ public abstract class AbstractListaController<E extends EntidadeBase> {
     if(modelo != null){
       modelo.setSupplier(supplier());
       tabela.itemsProperty().bind(modelo.getDados());
-//      modelo.dadoProperty().bind(tabela.getSelectionModel().selectedItemProperty());
       modelo.indiceDadoProperty().bind(tabela.getSelectionModel().selectedIndexProperty());
     }
   }

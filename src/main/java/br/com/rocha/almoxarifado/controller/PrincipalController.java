@@ -27,17 +27,21 @@ public class PrincipalController implements Initializable {
   
   @FXML
   public void onProdutoAction(ActionEvent event){
-    System.out.println("Produto");
+    openTab("Produto", "Produto");
   }
   
   @FXML
   public void onFuncionarioAction(ActionEvent event){
-    System.out.println("Funcionário");
+    openTab("Funcionário", "Funcionario");
   }
   
   @FXML
   public void onUsuarioAction(ActionEvent event){
-    Tab tab = new Tab("Usuário");
+    openTab("Usuário", "Usuario");
+  }
+  
+  private void openTab(String tituloTab, String fxmlFlow){
+    Tab tab = new Tab(tituloTab);
     boolean temTabua = false;
     for (Tab tabua : tabPane.getTabs()) {
       if (tabua.getText().equals(tab.getText())) {
@@ -47,12 +51,12 @@ public class PrincipalController implements Initializable {
     }
     if (!temTabua) {
       try {
-        Flow flow = FlowFactory.createFlow("Usuario");
+        Flow flow = FlowFactory.createFlow(fxmlFlow);
         tab.setContent(flow.start());
         tabPane.getTabs().add(tab);
         tabPane.getSelectionModel().select(tab);
       } catch (SecurityException | FlowException ex) {
-        System.out.println(ex);
+        ex.printStackTrace();
       }
     }
   }

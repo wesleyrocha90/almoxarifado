@@ -3,6 +3,7 @@ package br.com.rocha.almoxarifado.controller;
 import br.com.rocha.almoxarifado.controller.flow.AbstractListaController;
 import br.com.rocha.almoxarifado.entity.Usuario;
 import br.com.rocha.almoxarifado.util.QueryUtil;
+import io.datafx.controller.ViewController;
 import java.util.function.Supplier;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -11,6 +12,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javax.annotation.PostConstruct;
 
+@ViewController("/fxml/UsuarioLista.fxml")
 public class UsuarioListaController extends AbstractListaController<Usuario>{
   
   @FXML TableColumn<Usuario, String> colunaUsuario;

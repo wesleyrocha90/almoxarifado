@@ -2,10 +2,12 @@
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
   <persistence-unit name="persistence" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-    <class>br.com.rocha.almoxarifado.entity.Usuario</class>
+    <class>br.com.rocha.almoxarifado.converter.LocalDatePersistenceConverter</class>
     <class>br.com.rocha.almoxarifado.entity.Funcionario</class>
+    <class>br.com.rocha.almoxarifado.entity.ItemRetirada</class>
     <class>br.com.rocha.almoxarifado.entity.Produto</class>
     <class>br.com.rocha.almoxarifado.entity.Retirada</class>
+    <class>br.com.rocha.almoxarifado.entity.Usuario</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5433/almoxarifado"/>
       <property name="javax.persistence.jdbc.user" value="postgres"/>
