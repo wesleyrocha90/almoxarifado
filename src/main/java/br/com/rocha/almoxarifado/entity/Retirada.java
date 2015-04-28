@@ -8,6 +8,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Convert;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
@@ -33,6 +34,6 @@ public class Retirada extends EntidadeBase implements Serializable{
   @JoinColumn(referencedColumnName = "ID")
   @Getter @Setter private Funcionario funcionario;
 
-  @OneToMany(cascade = CascadeType.ALL, mappedBy = "retirada")
+  @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "retirada")
   @Getter @Setter private List<ItemRetirada> itensRetirada;
 }

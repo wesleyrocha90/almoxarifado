@@ -1,42 +1,89 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <BorderPane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
             <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-              <items>
-                  <TextField prefWidth="250.0" />
-                  <ChoiceBox prefWidth="150.0" />
-              </items>
+               <items>
+                  <VBox spacing="10.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" minWidth="-Infinity" spacing="10.0">
+                           <children>
+                              <Button fx:id="botaoRegistrarSaida" mnemonicParsing="false" text="Registrar saída" />
+                              <Button fx:id="botaoRegistrarEntrada" mnemonicParsing="false" text="Registrar entrada" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                           <children>
+                              <Label text="Filtros" />
+                              <DatePicker fx:id="filtroPorData" promptText="Por Data" />
+                              <ComboBox fx:id="filtroPorUsuario" prefWidth="150.0" promptText="Por Usuário" />
+                              <ComboBox fx:id="filtroPorFuncionario" prefWidth="150.0" promptText="Por funcionário" />
+                              <ComboBox fx:id="filtroPorProduto" prefWidth="150.0" promptText="Por produto" />
+                              <Button mnemonicParsing="false" text="Remover filtro">
+                                 <graphic>
+                                    <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../icons/removeFilter_16.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </items>
             </ToolBar>
          </top>
          <center>
-            <ScrollPane fitToHeight="true" fitToWidth="true" prefViewportHeight="360.0" prefViewportWidth="600.0">
-               <content>
-                  <TreeTableView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-                    <columns>
-                      <TreeTableColumn fx:id="colunaData" prefWidth="75.0" text="Data" />
-                      <TreeTableColumn fx:id="colunaFuncionario" prefWidth="75.0" text="Funcionário" />
-                        <TreeTableColumn fx:id="colunaItens" prefWidth="75.0" text="Itens">
-                           <columns>
-                              <TreeTableColumn fx:id="colunaProduto" prefWidth="75.0" text="Produto" />
-                              <TreeTableColumn fx:id="colunaQuantidade" prefWidth="75.0" text="Quantidade" />
-                           </columns>
-                        </TreeTableColumn>
-                    </columns>
-                     <columnResizePolicy>
-                        <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                     </columnResizePolicy>
-                  </TreeTableView>
-               </content>
-            </ScrollPane>
+            <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" BorderPane.alignment="CENTER">
+              <items>
+                  <AnchorPane>
+                     <children>
+                        <TitledPane prefHeight="202.0" prefWidth="600.0" text="Retiradas" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <content>
+                              <TableView fx:id="tabelaRetiradas" layoutX="169.0" layoutY="-24.0" prefHeight="176.0" prefWidth="598.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <columns>
+                                  <TableColumn fx:id="colunaData" prefWidth="75.0" text="Data" />
+                                  <TableColumn fx:id="colunaUsuario" prefWidth="75.0" text="Usuário" />
+                                    <TableColumn fx:id="colunaFuncionario" prefWidth="75.0" text="Funcionário" />
+                                </columns>
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                              </TableView>
+                           </content>
+                        </TitledPane>
+                     </children>
+                  </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                     <children>
+                        <TitledPane prefHeight="150.0" prefWidth="600.0" text="Itens da retirada" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <content>
+                              <TableView fx:id="tabelaItensRetirada" layoutX="186.0" layoutY="-18.0" prefHeight="176.0" prefWidth="598.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <columns>
+                                  <TableColumn fx:id="colunaProduto" prefWidth="75.0" text="Produto" />
+                                  <TableColumn fx:id="colunaQuantidade" prefWidth="75.0" text="Quantidade" />
+                                </columns>
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                              </TableView>
+                           </content>
+                        </TitledPane>
+                     </children>
+                  </AnchorPane>
+              </items>
+            </SplitPane>
          </center>
       </BorderPane>
    </children>
