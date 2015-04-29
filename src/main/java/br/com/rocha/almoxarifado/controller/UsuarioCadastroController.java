@@ -17,7 +17,8 @@ public class UsuarioCadastroController extends AbstractCadastroController<Usuari
 
   @Override
   public boolean antesDeSalvar() {
-    if(StringUtils.isEmpty(fieldUsuario.getText()) || StringUtils.isEmpty(fieldSenha.getText())){
+    if(StringUtils.isEmpty(fieldUsuario.getText()) 
+        || StringUtils.isEmpty(fieldSenha.getText())){
       Alert alert = new Alert(Alert.AlertType.ERROR, "Todos os campos precisam ser preenchidos", ButtonType.OK);
       alert.setTitle("Erro ao salvar");
       alert.setHeaderText(null);

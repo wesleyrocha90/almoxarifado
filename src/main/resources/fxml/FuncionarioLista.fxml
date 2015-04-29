@@ -11,8 +11,8 @@
          <top>
             <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
               <items>
-                  <TextField prefWidth="250.0" />
-                  <ChoiceBox prefWidth="150.0" />
+                  <TextField fx:id="textoFiltro" prefWidth="250.0" promptText="Pesquisar" />
+                  <ComboBox fx:id="opcaoFiltro" prefWidth="150.0" />
                   <Button fx:id="criar" mnemonicParsing="false" text="Criar">
                      <graphic>
                         <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">

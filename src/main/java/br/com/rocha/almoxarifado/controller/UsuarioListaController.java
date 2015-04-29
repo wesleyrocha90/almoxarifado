@@ -4,6 +4,7 @@ import br.com.rocha.almoxarifado.controller.flow.AbstractListaController;
 import br.com.rocha.almoxarifado.entity.Usuario;
 import br.com.rocha.almoxarifado.util.QueryUtil;
 import io.datafx.controller.ViewController;
+import java.util.function.Predicate;
 import java.util.function.Supplier;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -25,5 +26,21 @@ public class UsuarioListaController extends AbstractListaController<Usuario>{
   @Override
   public Supplier<ObservableList<Usuario>> supplier() {
     return () -> FXCollections.observableArrayList(QueryUtil.selectListByNamedQuery("Usuario.findAll"));
+  }
+  
+  @Override
+  public ObservableList<String> opcoesFiltro() {
+    return FXCollections.observableArrayList("Usuário");
+  }
+  
+  @Override
+  public Predicate<Usuario> filtro(String textFiltro, String opcaoFiltro) {
+    return (Usuario u) -> {
+      switch(opcaoFiltro){
+        case "Usuário":
+          return u.getUsuario().contains(textFiltro);
+      }
+      return false;
+    };
   }
 }

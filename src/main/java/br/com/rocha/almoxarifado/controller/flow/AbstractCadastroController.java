@@ -1,6 +1,5 @@
 package br.com.rocha.almoxarifado.controller.flow;
 
-import br.com.rocha.almoxarifado.controller.UsuarioListaController;
 import br.com.rocha.almoxarifado.entity.EntidadeBase;
 import br.com.rocha.almoxarifado.util.QueryUtil;
 import io.datafx.controller.flow.FlowException;
@@ -31,16 +30,21 @@ public abstract class AbstractCadastroController<E extends EntidadeBase> {
   private Button cancelar;
   
   @ActionHandler
-  protected FlowActionHandler actionHandler;
+  private FlowActionHandler actionHandler;
   
   @Inject
-  @Getter private DataModelFlow<E> modelo;
+  private DataModelFlow<E> modelo;
+  
+  private Class<?> classeLista;
   
   public abstract void telaParaObjeto(E objeto);
   public abstract void objetoParaTela(E objeto);
+  public boolean antesDeSalvar(){
+    return true;
+  }
   
   @ActionMethod("salvar")
-  public void salvarAction(){
+  private void salvarAction(){
     if(antesDeSalvar()){
       telaParaObjeto(modelo.getDado());
       salvar();
@@ -48,23 +52,28 @@ public abstract class AbstractCadastroController<E extends EntidadeBase> {
   }
   
   @ActionMethod("salvarEFechar")
-  public void salvarEFecharAction(){
+  private void salvarEFecharAction(){
     if(antesDeSalvar()){
       try {
         telaParaObjeto(modelo.getDado());
         salvar();
-        actionHandler.navigate(UsuarioListaController.class);
+        actionHandler.navigate(classeLista);
       } catch (VetoException | FlowException ex) {
         System.out.println(ex);
       }
     }
   }
   
-  public boolean antesDeSalvar(){
-    return true;
+  @ActionMethod("cancelar")
+  private void cancelarAction(){
+    try {
+      actionHandler.navigate(classeLista);
+    } catch (VetoException | FlowException ex) {
+      System.out.println(ex);
+    }
   }
   
-  public void salvar(){
+  private void salvar(){
     if(modelo.getDado() != null){
       if(modelo.getDado().getId() == null){
           QueryUtil.saveEntity(modelo.getDado());
@@ -76,7 +85,7 @@ public abstract class AbstractCadastroController<E extends EntidadeBase> {
   }
       
   @PostConstruct
-  public void initialize(){
+  private void initialize(){
     if(modelo != null){
       if(modelo.getIndiceDado() >= 0){
         modelo.setDado(modelo.getDados().get(modelo.getIndiceDado()));
@@ -90,6 +99,15 @@ public abstract class AbstractCadastroController<E extends EntidadeBase> {
         }
       }
       objetoParaTela(modelo.getDado());
+    }
+  }
+  
+  {
+    try {
+      classeLista = 
+          Class.forName(this.getClass().getCanonicalName().replace("CadastroController", "ListaController"));
+    } catch (ClassNotFoundException ex) {
+      System.out.println(ex);
     }
   }
 }
