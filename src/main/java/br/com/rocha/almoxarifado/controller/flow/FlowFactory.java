@@ -4,7 +4,6 @@ import io.datafx.controller.flow.Flow;
 import io.datafx.controller.flow.action.FlowActionChain;
 import io.datafx.controller.flow.action.FlowLink;
 import io.datafx.controller.flow.action.FlowMethodAction;
-import io.datafx.controller.flow.action.FlowTaskAction;
 
 public class FlowFactory {
   
@@ -21,13 +20,13 @@ public class FlowFactory {
               new FlowMethodAction(classeLista.getMethod("onBotaoCriarNovoAction")),
               new FlowLink(classeCadastro)))
           .withTaskAction(classeLista, "remover", RemoveActionTask.class)
-          .withAction(classeCadastro, "salvar", new FlowActionChain(
-              new FlowMethodAction(classeCadastro.getMethod("onSaveAction")),
-              new FlowTaskAction(SaveActionTask.class)))
-          .withAction(classeCadastro, "salvarEFechar", new FlowActionChain(
-              new FlowMethodAction(classeCadastro.getMethod("onSaveAction")),
-              new FlowTaskAction(SaveActionTask.class),
-              new FlowLink(classeLista)))
+//          .withAction(classeCadastro, "salvar", new FlowActionChain(
+//              new FlowMethodAction(classeCadastro.getMethod("onSaveAction")),
+//              new FlowTaskAction(SaveActionTask.class)))
+//          .withAction(classeCadastro, "salvarEFechar", new FlowActionChain(
+//              new FlowMethodAction(classeCadastro.getMethod("onSaveAction")),
+//              new FlowTaskAction(SaveActionTask.class),
+//              new FlowLink(classeLista)))
           .withLink(classeCadastro, "cancelar", classeLista);
       return flow;
       
