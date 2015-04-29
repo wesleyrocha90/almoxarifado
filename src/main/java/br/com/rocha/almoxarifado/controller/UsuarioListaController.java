@@ -38,7 +38,7 @@ public class UsuarioListaController extends AbstractListaController<Usuario>{
     return (Usuario u) -> {
       switch(opcaoFiltro){
         case "Usuário":
-          return u.getUsuario().contains(textFiltro);
+          return u.getUsuario().toUpperCase().contains(textFiltro.toUpperCase());
       }
       return false;
     };

@@ -44,7 +44,7 @@ public class ProdutoListaController extends AbstractListaController<Produto>{
         case "Código":
           return p.getCodigo().equals(textFiltro);
         case "Nome":
-          return p.getNome().contains(textFiltro);
+          return p.getNome().toUpperCase().contains(textFiltro.toUpperCase());
       }
       return false;
     };

@@ -42,7 +42,7 @@ public class FuncionarioListaController extends AbstractListaController<Funciona
         case "Código":
           return f.getCodigo().equals(textFiltro);
         case "Nome":
-          return f.getNome().contains(textFiltro);
+          return f.getNome().toUpperCase().contains(textFiltro.toUpperCase());
       }
       return false;
     };

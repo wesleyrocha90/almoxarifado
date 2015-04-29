@@ -11,6 +11,7 @@ import io.datafx.controller.util.VetoException;
 import java.util.Optional;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -83,8 +84,10 @@ public abstract class AbstractListaController<E extends EntidadeBase> {
   @ActionMethod("pesquisar")
   public void pesquisarAction(){
     if(StringUtils.isNotEmpty(textoFiltro.getText())){
-      modelo.getDados().setAll(modelo.getDados().filtered(
-          filtro(textoFiltro.getText(), opcaoFiltro.getSelectionModel().getSelectedItem())));
+      modelo.getDados().setAll(supplier().get());
+      ObservableList<E> listaFiltrada = modelo.getDados().filtered(
+          filtro(textoFiltro.getText(), opcaoFiltro.getSelectionModel().getSelectedItem()));
+      modelo.getDados().setAll(FXCollections.observableArrayList(listaFiltrada));
     }else{
       modelo.getDados().setAll(supplier().get());
     }
@@ -112,6 +115,7 @@ public abstract class AbstractListaController<E extends EntidadeBase> {
       modelo.indiceDadoProperty().bind(tabela.getSelectionModel().selectedIndexProperty());
     }
     opcaoFiltro.getItems().setAll(opcoesFiltro());
+    opcaoFiltro.getSelectionModel().selectFirst();
   }
   
   {
