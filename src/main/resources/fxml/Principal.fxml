@@ -21,7 +21,7 @@
                       <graphic>
                         <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
                           <image>
-                            <Image url="@../icons/inOut_512.png" />
+                            <Image url="@../icons/inOut_48.png" />
                           </image>
                         </ImageView>
                       </graphic>
@@ -40,7 +40,7 @@
                       <graphic>
                         <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
                           <image>
-                            <Image url="@../icons/product_512.png" />
+                            <Image url="@../icons/product_48.png" />
                           </image>
                         </ImageView>
                       </graphic>
@@ -49,7 +49,7 @@
                       <graphic>
                         <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
                           <image>
-                            <Image url="@../icons/employer_512.png" />
+                            <Image url="@../icons/employer_48.png" />
                           </image>
                         </ImageView>
                       </graphic>
@@ -58,7 +58,7 @@
                       <graphic>
                         <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
                           <image>
-                            <Image url="@../icons/user_512.png" />
+                            <Image url="@../icons/user_48.png" />
                           </image>
                         </ImageView>
                       </graphic>

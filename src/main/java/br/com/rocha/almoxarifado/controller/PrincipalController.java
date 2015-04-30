@@ -32,12 +32,16 @@ public class PrincipalController implements Initializable {
     }
     if (!temTabua) {
       try {
-        Flow flow = new Flow(RetiradaListaController.class);
+        Flow flow = new Flow(RetiradaListaController.class)
+            .withLink(RetiradaListaController.class, "registrarRetirada", RetiradaCadastroController.class)
+            .withLink(RetiradaListaController.class, "registrarEntrada", EntradaCadastroController.class)
+            .withLink(RetiradaCadastroController.class, "cancelar", RetiradaListaController.class)
+            .withLink(EntradaCadastroController.class, "cancelar", RetiradaListaController.class);
         tab.setContent(flow.start());
         tabPane.getTabs().add(tab);
         tabPane.getSelectionModel().select(tab);
       } catch (SecurityException | FlowException ex) {
-        ex.printStackTrace();
+        System.out.println(ex);
       }
     }
   }
@@ -73,7 +77,7 @@ public class PrincipalController implements Initializable {
         tabPane.getTabs().add(tab);
         tabPane.getSelectionModel().select(tab);
       } catch (SecurityException | FlowException ex) {
-        ex.printStackTrace();
+        System.out.println(ex);
       }
     }
   }

@@ -13,7 +13,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
-import lombok.Getter;
 
 public abstract class AbstractCadastroController<E extends EntidadeBase> {
 
