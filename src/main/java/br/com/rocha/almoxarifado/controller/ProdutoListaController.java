@@ -34,7 +34,7 @@ public class ProdutoListaController extends AbstractListaController<Produto>{
 
   @Override
   public ObservableList<String> opcoesFiltro() {
-    return FXCollections.observableArrayList("Código", "Nome");
+    return FXCollections.observableArrayList("Nome", "Código");
   }
 
   @Override

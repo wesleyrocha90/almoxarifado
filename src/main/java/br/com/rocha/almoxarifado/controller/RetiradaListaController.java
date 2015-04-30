@@ -4,6 +4,8 @@ import br.com.rocha.almoxarifado.entity.ItemRetirada;
 import br.com.rocha.almoxarifado.entity.Retirada;
 import br.com.rocha.almoxarifado.util.QueryUtil;
 import io.datafx.controller.ViewController;
+import io.datafx.controller.flow.action.ActionMethod;
+import io.datafx.controller.flow.action.ActionTrigger;
 import java.time.format.DateTimeFormatter;
 import java.util.stream.Collectors;
 import javafx.beans.property.ReadOnlyStringWrapper;
@@ -32,13 +34,19 @@ public class RetiradaListaController {
   @FXML private TableColumn<ItemRetirada, String> colunaProduto;
   @FXML private TableColumn<ItemRetirada, String> colunaQuantidade;
   
-  @FXML private Button botaoRegistrarRetirada; 
+  @FXML private Button botaoRegistrarRetirada;
   @FXML private Button botaoRegistrarEntrada;
   @FXML private DatePicker filtroPorData;
   @FXML private ComboBox filtroPorUsuario;
   @FXML private ComboBox filtroPorFuncionario;
   @FXML private ComboBox filtroPorProduto;
+  @ActionTrigger("removerFiltro")
   @FXML private Button botaoRemoverFiltro;
+  
+  @ActionMethod("removerFiltro")
+  public void removerFiltroAction(){
+    System.out.println(filtroPorData.getValue());
+  }
   
   @PostConstruct
   public void init(){

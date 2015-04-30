@@ -18,7 +18,7 @@ public class DataModelFlow<E extends EntidadeBase> {
   private ListProperty<E> dados;
   private ObjectProperty<E> dado;
   private IntegerProperty indiceDado;
-
+  
   public void setSupplier(Supplier<ObservableList<E>> supplier){
     this.supplier = supplier;
     dados = new SimpleListProperty<>(supplier.get());

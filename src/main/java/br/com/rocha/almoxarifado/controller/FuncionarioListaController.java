@@ -32,7 +32,7 @@ public class FuncionarioListaController extends AbstractListaController<Funciona
 
   @Override
   public ObservableList<String> opcoesFiltro() {
-    return FXCollections.observableArrayList("Código", "Nome");
+    return FXCollections.observableArrayList("Nome", "Código");
   }
 
   @Override

@@ -56,7 +56,6 @@ public abstract class AbstractListaController<E extends EntidadeBase> {
   public abstract ObservableList<String> opcoesFiltro();
   public abstract Predicate<E> filtro(String textFiltro, String opcaoFiltro);
   
-  
   @ActionMethod("editar")
   private void editarAction(){
     try {
