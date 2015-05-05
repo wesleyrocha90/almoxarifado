@@ -18,21 +18,23 @@
                 <HBox alignment="CENTER_LEFT" minWidth="-Infinity" spacing="10.0">
                   <children>
                     <Button fx:id="botaoRegistrarSaida" mnemonicParsing="false" text="Registrar saída">
-                                 <graphic>
-                                    <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../icons/out_16.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic></Button>
+                      <graphic>
+                        <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                          <image>
+                            <Image url="@../icons/out_16.png" />
+                          </image>
+                        </ImageView>
+                      </graphic>
+                    </Button>
                     <Button fx:id="botaoRegistrarEntrada" mnemonicParsing="false" text="Registrar entrada">
-                                 <graphic>
-                                    <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../icons/in_16.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic></Button>
+                      <graphic>
+                        <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                          <image>
+                            <Image url="@../icons/in_16.png" />
+                          </image>
+                        </ImageView>
+                      </graphic>
+                    </Button>
                   </children>
                 </HBox>
                 <HBox alignment="CENTER_LEFT" spacing="10.0">

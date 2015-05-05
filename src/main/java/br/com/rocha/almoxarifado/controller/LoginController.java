@@ -43,6 +43,9 @@ public class LoginController implements Initializable {
                 Maps.asMap("usuario", login, "senha", senha));
         if (usuario != null) {
           loginValido = true;
+          usuario.setLogado(true);
+          QueryUtil.saveEntity(usuario);
+          
           erro.getScene().getWindow().hide();
         } else {
           erro.setText("Usuário ou senha incorretos");

@@ -4,13 +4,9 @@ import br.com.rocha.almoxarifado.entity.ItemRetirada;
 import br.com.rocha.almoxarifado.entity.Retirada;
 import br.com.rocha.almoxarifado.util.QueryUtil;
 import io.datafx.controller.ViewController;
-import io.datafx.controller.flow.Flow;
-import io.datafx.controller.flow.FlowException;
 import io.datafx.controller.flow.action.ActionMethod;
 import io.datafx.controller.flow.action.ActionTrigger;
 import java.time.format.DateTimeFormatter;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import java.util.stream.Collectors;
 import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.collections.FXCollections;
@@ -21,9 +17,6 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.image.Image;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
 import javax.annotation.PostConstruct;
 
 @ViewController("/fxml/RetiradaLista.fxml")

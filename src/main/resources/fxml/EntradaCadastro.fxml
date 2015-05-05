@@ -11,86 +11,77 @@
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
   <children>
     <BorderPane layoutX="169.0" layoutY="100.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <center>
-            <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-               <center>
-              <TableView fx:id="tabelaProdutos" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-                <columns>
-                  <TableColumn fx:id="colunaCodigo" prefWidth="75.0" text="Código" />
-                  <TableColumn fx:id="colunaNome" prefWidth="75.0" text="Nome" />
-                  <TableColumn fx:id="colunaQuantidade" prefWidth="75.0" text="Quantidade" />
-                  <TableColumn fx:id="colunaRemover" prefWidth="75.0" text="Remover" />
-                </columns>
-                <columnResizePolicy>
-                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                </columnResizePolicy>
-              </TableView>
-               </center>
-               <top>
-                  <HBox spacing="5.0" BorderPane.alignment="CENTER">
-                     <children>
-                        <Button fx:id="botaoPesquisar" mnemonicParsing="false">
-                           <graphic>
-                              <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../icons/search_16.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                  <TextField fx:id="textoCodigo" prefWidth="100.0" promptText="Código" />
-                  <TextField fx:id="textoNome" prefWidth="200.0" promptText="Nome" />
-                  <TextField fx:id="textoQuantidade" prefWidth="100.0" promptText="Quantidade" />
-                  <Button fx:id="botaoInserir" mnemonicParsing="false" text="Inserir">
-                    <graphic>
-                      <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
-                        <image>
-                          <Image url="@../icons/add_16.png" />
-                        </image>
-                      </ImageView>
-                    </graphic>
-                  </Button>
-                     </children>
-                     <padding>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </padding>
-                  </HBox>
-               </top>
-            </BorderPane>
-         </center>
-         <top>
+      <center>
+        <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+          <center>
+            <TableView fx:id="tabelaProdutos" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+              <columns>
+                <TableColumn fx:id="colunaCodigo" prefWidth="75.0" text="Código" />
+                <TableColumn fx:id="colunaNome" prefWidth="75.0" text="Nome" />
+                <TableColumn fx:id="colunaQuantidade" prefWidth="75.0" text="Quantidade" />
+                <TableColumn fx:id="colunaRemover" prefWidth="75.0" text="Remover" />
+              </columns>
+              <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+              </columnResizePolicy>
+            </TableView>
+          </center>
+          <top>
+            <HBox spacing="5.0" BorderPane.alignment="CENTER">
+              <children>
+                <Button fx:id="botaoPesquisar" mnemonicParsing="false">
+                  <graphic>
+                    <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                      <image>
+                        <Image url="@../icons/search_16.png" />
+                      </image>
+                    </ImageView>
+                  </graphic>
+                </Button>
+                <TextField fx:id="textoCodigo" prefWidth="100.0" promptText="Código" />
+                <TextField fx:id="textoNome" prefWidth="200.0" promptText="Nome" />
+                <TextField fx:id="textoQuantidade" prefWidth="100.0" promptText="Quantidade" />
+                <Button fx:id="botaoInserir" mnemonicParsing="false" text="Inserir">
+                  <graphic>
+                    <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                      <image>
+                        <Image url="@../icons/add_16.png" />
+                      </image>
+                    </ImageView>
+                  </graphic>
+                </Button>
+              </children>
+              <padding>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+              </padding>
+            </HBox>
+          </top>
+        </BorderPane>
+      </center>
+      <top>
         <ToolBar BorderPane.alignment="CENTER">
-               <items>
-                  <Button fx:id="salvar" mnemonicParsing="false" text="Salvar">
-                     <graphic>
-                        <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../icons/save_16.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Button fx:id="salvarEFechar" mnemonicParsing="false" text="Salvar e fechar">
-                     <graphic>
-                        <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../icons/save_16.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Button fx:id="cancelar" mnemonicParsing="false" text="Cancelar">
-                     <graphic>
-                        <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../icons/undo_16.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-               </items>
+          <items>
+            <Button fx:id="salvar" mnemonicParsing="false" text="Salvar">
+              <graphic>
+                <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                    <Image url="@../icons/save_16.png" />
+                  </image>
+                </ImageView>
+              </graphic>
+            </Button>
+            <Button fx:id="cancelar" mnemonicParsing="false" text="Cancelar">
+              <graphic>
+                <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                    <Image url="@../icons/undo_16.png" />
+                  </image>
+                </ImageView>
+              </graphic>
+            </Button>
+          </items>
         </ToolBar>
-         </top>
+      </top>
     </BorderPane>
   </children>
 </AnchorPane>

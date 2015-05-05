@@ -40,7 +40,4 @@
       </rowConstraints>
     </GridPane>
   </children>
-  <stylesheets>
-    <URL value="@../styles/Login.css" />
-  </stylesheets>
 </AnchorPane>

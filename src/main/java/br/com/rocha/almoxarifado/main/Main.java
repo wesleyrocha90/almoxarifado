@@ -1,6 +1,8 @@
 package br.com.rocha.almoxarifado.main;
 
 import br.com.rocha.almoxarifado.controller.LoginController;
+import br.com.rocha.almoxarifado.entity.Usuario;
+import br.com.rocha.almoxarifado.util.QueryUtil;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
@@ -43,6 +45,11 @@ public class Main extends Application {
     stage.setMaximized(true);
     stage.setScene(scene);
     stage.getIcons().add(new Image(getClass().getResource("/icons/" + "warehouse_512.png").toString()));
+    stage.setOnCloseRequest(event -> {
+        Usuario usuario = QueryUtil.selectSingleByNamedQuery("Usuario.findLogado");
+        usuario.setLogado(false);
+        QueryUtil.saveEntity(usuario);
+    });
     stage.show();
   }
 }
