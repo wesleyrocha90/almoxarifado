@@ -70,22 +70,8 @@ public class EntradaCadastroController {
     colunaNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
     colunaQuantidade.setCellValueFactory(new PropertyValueFactory<>("quantidade"));
     
-    colunaRemover.setCellValueFactory(
-        new Callback<TableColumn.CellDataFeatures<Produto, Boolean>, ObservableValue<Boolean>>() {
-      @Override
-      public ObservableValue<Boolean> call(TableColumn.CellDataFeatures<Produto, Boolean> param) {
-        return new SimpleBooleanProperty(param.getValue() != null);
-      }
-    });
-    colunaRemover.setCellFactory(new Callback<TableColumn<Produto, Boolean>, TableCell<Produto, Boolean>>() {
-      @Override
-      public TableCell<Produto, Boolean> call(TableColumn<Produto, Boolean> param) {
-        return new ButtonCell(event -> {
-          produtos.remove(tabelaProdutos.getSelectionModel().getSelectedItem());
-          tabelaProdutos.setItems(produtos);
-        });
-      }
-    });
+    colunaRemover.setCellValueFactory(param -> new SimpleBooleanProperty(param.getValue() != null));
+    colunaRemover.setCellFactory(param -> new ButtonCell());
   }
   
   @ActionMethod("salvar")

@@ -1,5 +1,6 @@
 package br.com.rocha.almoxarifado.controller;
 
+import br.com.rocha.almoxarifado.controller.control.ButtonCell;
 import br.com.rocha.almoxarifado.entity.Funcionario;
 import br.com.rocha.almoxarifado.entity.ItemRetirada;
 import br.com.rocha.almoxarifado.entity.Produto;
@@ -16,6 +17,7 @@ import io.datafx.controller.util.VetoException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -76,6 +78,9 @@ public class RetiradaCadastroController {
     colunaCodigo.setCellValueFactory(new PropertyValueFactory<>("codigo"));
     colunaNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
     colunaQuantidade.setCellValueFactory(new PropertyValueFactory<>("quantidade"));
+    
+    colunaRemover.setCellValueFactory(param -> new SimpleBooleanProperty(param.getValue() != null));
+    colunaRemover.setCellFactory(param -> new ButtonCell());
   }
   
   @ActionMethod("salvar")
