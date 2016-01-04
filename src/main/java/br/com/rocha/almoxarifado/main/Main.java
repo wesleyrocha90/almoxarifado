@@ -41,6 +41,7 @@ public class Main extends Application {
   public void exibirPrincipal(Stage stage) throws Exception {
     Parent root = FXMLLoader.load(getClass().getResource("/fxml/Principal.fxml"));
     Scene scene = new Scene(root);
+    scene.getStylesheets().add(getClass().getResource("/style/Principal.css").toString());
     stage.setTitle("Principal");
     stage.setMaximized(true);
     stage.setScene(scene);

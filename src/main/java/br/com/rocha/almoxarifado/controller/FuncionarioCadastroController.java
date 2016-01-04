@@ -1,5 +1,6 @@
 package br.com.rocha.almoxarifado.controller;
 
+import br.com.rocha.almoxarifado.controller.control.Decorador;
 import br.com.rocha.almoxarifado.controller.flow.AbstractCadastroController;
 import br.com.rocha.almoxarifado.entity.Funcionario;
 import io.datafx.controller.ViewController;
@@ -7,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
+import javax.annotation.PostConstruct;
 import org.apache.commons.lang.StringUtils;
 
 @ViewController("/fxml/FuncionarioCadastro.fxml")
@@ -14,6 +16,11 @@ public class FuncionarioCadastroController extends AbstractCadastroController<Fu
   
   @FXML TextField fieldCodigo;
   @FXML TextField fieldNome;
+  
+  @PostConstruct
+  public void postConstruct() {
+      Decorador.decorarNos(Decorador.Tipo.OBRIGATORIO, fieldCodigo, fieldNome);
+  }
   
   @Override
   public boolean antesDeSalvar() {
